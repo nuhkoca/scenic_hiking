@@ -15,6 +15,7 @@ import com.mapbox.mapboxsdk.maps.Style
 
 private const val DEFAULT_ZOOM_LEVEL = 15.0
 private const val DEFAULT_ANIMATION_DURATION_IN_MS = 2000
+private const val INVALID_MIN_ZOOM_VALUE = 0.0
 
 fun MapboxMap.initWithDefault() {
     uiSettings.isCompassEnabled = true
@@ -57,5 +58,12 @@ fun MapboxMap.updateAndAnimate(
     durationInMs: Int = DEFAULT_ANIMATION_DURATION_IN_MS
 ) {
     locationComponent.forceLocationUpdate(location)
-    animateWithDefault(location, zoomLevel, durationInMs)
+
+    var currentZoom = cameraPosition.zoom
+    if (currentZoom.isZoomInInvalidRange) currentZoom = zoomLevel
+
+    animateWithDefault(location, currentZoom, durationInMs)
 }
+
+private inline val Double.isZoomInInvalidRange: Boolean
+    get() = this in INVALID_MIN_ZOOM_VALUE..DEFAULT_ZOOM_LEVEL

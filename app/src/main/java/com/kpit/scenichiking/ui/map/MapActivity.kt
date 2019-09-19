@@ -41,7 +41,10 @@ class MapActivity : PermissionActivity<MapViewModel>(), OnMapReadyCallback, MapP
     override fun observeViewModel() = with(viewModel) {
         permissionResultLiveData.observeWith(this@MapActivity) {
             when (it) {
-                GRANTED -> observeLocationEngine()
+                GRANTED -> {
+                    mapboxMap.enableLocationComponent(context, mapboxMap.style!!)
+                    observeLocationEngine()
+                }
                 else -> { // no-op }
                 }
             }
