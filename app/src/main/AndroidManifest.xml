@@ -30,7 +30,8 @@
     <activity
         android:name=".ui.map.MapActivity"
         android:launchMode="singleTask"
-        android:screenOrientation="portrait" />
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme"/>
   </application>
 
 </manifest>

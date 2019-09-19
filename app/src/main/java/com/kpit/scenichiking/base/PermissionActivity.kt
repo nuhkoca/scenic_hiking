@@ -4,9 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.ViewModel
+import com.kpit.scenichiking.util.config.Keys
 import com.kpit.scenichiking.util.ext.filterApply
 import com.kpit.scenichiking.util.ext.observeWith
-import com.kpit.scenichiking.util.location.Keys
 import com.kpit.scenichiking.util.location.LocationEngineLiveData
 import com.kpit.scenichiking.util.location.LocationEngineLiveData.LocationState.Failure
 import com.kpit.scenichiking.util.location.LocationEngineLiveData.LocationState.Success

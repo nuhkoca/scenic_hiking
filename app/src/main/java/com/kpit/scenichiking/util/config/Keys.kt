@@ -1,4 +1,4 @@
-package com.kpit.scenichiking.util.location
+package com.kpit.scenichiking.util.config
 
 object Keys {
 

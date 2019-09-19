@@ -13,6 +13,8 @@ class SplashActivity : BaseActivity<SplashViewModel>() {
 
     override fun getViewModelClass() = SplashViewModel::class.java
 
+    override val isToolbarEnabled = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         observeViewModel()
