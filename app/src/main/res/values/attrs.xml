@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="FadingSnackbar">
+    <attr name="length" format="enum" >
+      <enum name="long_length" value="0" />
+      <enum name="short_length" value="1" />
+    </attr>
+  </declare-styleable>
+</resources>

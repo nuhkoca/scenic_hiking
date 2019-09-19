@@ -1,0 +1,9 @@
+<resources>
+  <string name="app_name">ScenicHiking</string>
+
+  <string name="location_req_message">To continue, turn on device location, which uses Google\'s location service</string>
+
+  <string name="snackbar_ok_action">OK</string>
+
+  <string name="location_auto_recentering_message">Auto recentering…</string>
+</resources>
