@@ -7,10 +7,8 @@ import androidx.lifecycle.LiveData
 import com.google.android.gms.common.ConnectionResult.RESOLUTION_REQUIRED
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
-import com.google.android.gms.location.LocationRequest
-import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
-import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.LocationSettingsRequest
+import com.google.android.gms.location.SettingsClient
 import com.kpit.scenichiking.util.location.LocationEngineLiveData.LocationState
 import com.kpit.scenichiking.util.location.LocationEngineLiveData.LocationState.Failure
 import com.kpit.scenichiking.util.location.LocationEngineLiveData.LocationState.GpsNotFound
@@ -25,6 +23,8 @@ import javax.inject.Singleton
 @Singleton
 class LocationEngineLiveData @Inject constructor(
     private val context: Context,
+    private val settingsClient: SettingsClient,
+    private val locationSettingsRequest: LocationSettingsRequest,
     private val locationEngine: LocationEngine,
     private val request: LocationEngineRequest
 ) : LiveData<LocationState>() {
@@ -32,14 +32,7 @@ class LocationEngineLiveData @Inject constructor(
     private val callback = MapActivityLocationCallback()
 
     private fun initEngine() {
-        val settingsClient = LocationServices.getSettingsClient(context)
-        val locationRequestBuilder = LocationSettingsRequest.Builder().addLocationRequest(
-            LocationRequest().setPriority(PRIORITY_HIGH_ACCURACY)
-        )
-
-        val locationRequest = locationRequestBuilder?.build()
-
-        settingsClient?.checkLocationSettings(locationRequest)?.run {
+        settingsClient.checkLocationSettings(locationSettingsRequest)?.run {
             addOnFailureListener {
                 val statusCode = (it as ApiException).statusCode
 
