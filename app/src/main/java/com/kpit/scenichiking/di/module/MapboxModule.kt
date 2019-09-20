@@ -11,7 +11,7 @@ import javax.inject.Singleton
 @Module
 object MapboxModule {
 
-    private const val DEFAULT_INTERVAL_IN_MILLISECONDS = 1000L
+    private const val DEFAULT_INTERVAL_IN_MILLISECONDS = 10000L
     private const val DEFAULT_MAX_WAIT_TIME = DEFAULT_INTERVAL_IN_MILLISECONDS * 5
 
     @Provides

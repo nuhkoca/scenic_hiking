@@ -6,4 +6,6 @@
   <string name="snackbar_ok_action">OK</string>
 
   <string name="location_auto_recentering_message">Auto recentering…</string>
+
+  <string name="start_navigation_text">Start Navigation</string>
 </resources>

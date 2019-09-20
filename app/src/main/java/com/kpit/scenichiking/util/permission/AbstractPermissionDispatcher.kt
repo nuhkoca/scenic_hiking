@@ -92,7 +92,14 @@ abstract class AbstractPermissionDispatcher : PermissionDispatcher {
         host.clear()
     }
 
-    enum class PermissionState {
-        DENIED, GRANTED, RATIONALE_DENIED, RATIONALE_ACCEPTED
+    enum class PermissionState(val type: Int) {
+
+        DENIED(0), GRANTED(1), RATIONALE_DENIED(2), RATIONALE_ACCEPTED(3);
+
+        companion object {
+            private val states = values()
+
+            fun of(value: Int) = states.firstOrNull { it.type == value } ?: DENIED
+        }
     }
 }

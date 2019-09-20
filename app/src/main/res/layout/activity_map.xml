@@ -8,12 +8,20 @@
     tools:context=".ui.map.MapActivity"
     >
 
-  <include
-      layout="@layout/toolbar_default"
-      android:id="@+id/toolbarLayout"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/leftGuideline"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_begin="@dimen/margin_normal"
+      />
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/rightGuideline"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_end="@dimen/margin_normal"
       />
 
   <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -42,6 +50,14 @@
       app:layout_constraintTop_toBottomOf="@id/toolbarLayout"
       />
 
+  <include
+      layout="@layout/toolbar_default"
+      android:id="@+id/toolbarLayout"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      />
+
   <com.kpit.scenichiking.util.widget.FadingSnackbar
       android:id="@+id/snackbar"
       android:layout_width="match_parent"
@@ -53,6 +69,18 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:length="short_length"
+      />
+
+  <com.google.android.material.button.MaterialButton
+      android:id="@+id/startNavigation"
+      android:layout_width="0dp"
+      android:layout_height="@dimen/start_navigation_button_height"
+      android:visibility="gone"
+      app:layout_constraintEnd_toStartOf="@id/rightGuideline"
+      app:layout_constraintStart_toEndOf="@id/leftGuideline"
+      app:layout_constraintTop_toBottomOf="@id/toolbarLayout"
+      tools:visibility="visible"
+      style="@style/Appearance.Hiking.NavigationButton"
       />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,8 @@ import com.kpit.scenichiking.util.executor.HikingPostExecutionThread
 import com.kpit.scenichiking.util.executor.PostExecutionThread
 import com.kpit.scenichiking.util.permission.LocationPermissionDispatcher
 import com.kpit.scenichiking.util.permission.PermissionDispatcher
+import com.kpit.scenichiking.util.provider.DimenProvider
+import com.kpit.scenichiking.util.provider.HikingDimenProvider
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -41,6 +43,10 @@ abstract class AppModule {
     internal abstract fun provideComputationThread(
         computationThread: HikingComputationThread
     ): ComputationThread
+
+    @Binds
+    @Singleton
+    internal abstract fun provideDimenProvider(hikingDimenProvider: HikingDimenProvider): DimenProvider
 
     @Module
     object StaticAppModule {

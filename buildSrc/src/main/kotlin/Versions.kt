@@ -41,6 +41,9 @@ object Versions {
     // EasyPermissions
     const val easy_permissions = "3.0.0"
 
+    // DynamicAnimation
+    const val dynamic_animation = "1.0.0"
+
     // Static code analysis
     const val detekt = "1.0.1"
     const val ben_manes = "0.22.0"

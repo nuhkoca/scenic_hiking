@@ -10,7 +10,9 @@ import com.kpit.scenichiking.util.ext.observeWith
 import com.kpit.scenichiking.util.location.LocationEngineLiveData
 import com.kpit.scenichiking.util.location.LocationEngineLiveData.LocationState.Failure
 import com.kpit.scenichiking.util.location.LocationEngineLiveData.LocationState.Success
+import com.kpit.scenichiking.util.location.NavigationLauncherHandler
 import com.kpit.scenichiking.util.location.PermissionStateObserver
+import com.kpit.scenichiking.util.map.MarkerUtil
 import com.kpit.scenichiking.util.permission.PermissionDispatcher
 import com.mapbox.mapboxsdk.Mapbox
 import pub.devrel.easypermissions.EasyPermissions.PermissionCallbacks
@@ -21,13 +23,19 @@ abstract class PermissionActivity<VM : ViewModel> : BaseActivity<VM>(), Rational
     PermissionCallbacks {
 
     @Inject
-    lateinit var context: Context
+    protected lateinit var context: Context
 
     @Inject
-    lateinit var permissionDispatcher: PermissionDispatcher
+    protected lateinit var permissionDispatcher: PermissionDispatcher
 
     @Inject
-    lateinit var locationEngineLiveData: LocationEngineLiveData
+    protected lateinit var locationEngineLiveData: LocationEngineLiveData
+
+    @Inject
+    protected lateinit var markerUtil: MarkerUtil
+
+    @Inject
+    protected lateinit var navigationLauncherHandler: NavigationLauncherHandler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Mapbox.getInstance(this, Keys.mapBoxKey())

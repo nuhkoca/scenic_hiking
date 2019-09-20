@@ -5,4 +5,13 @@
   <dimen name="snackbar_margin_end_fab">0dp</dimen>
   <dimen name="snackbar_margin_bottom_fab">72dp</dimen>
   <dimen name="snackbar_margin_bottom_bab">84dp</dimen>
+
+  <dimen name="text_size_big">16sp</dimen>
+
+  <dimen name="start_navigation_button_height">60dp</dimen>
+
+  <dimen name="map_top_padding">120dp</dimen>
+  <dimen name="map_bottom_padding">90dp</dimen>
+  <dimen name="map_right_padding">32dp</dimen>
+  <dimen name="map_left_padding">32dp</dimen>
 </resources>
