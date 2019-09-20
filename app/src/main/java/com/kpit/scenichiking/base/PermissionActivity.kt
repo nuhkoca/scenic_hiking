@@ -8,7 +8,9 @@ import com.kpit.scenichiking.util.config.Keys
 import com.kpit.scenichiking.util.ext.filterApply
 import com.kpit.scenichiking.util.ext.observeWith
 import com.kpit.scenichiking.util.location.LocationEngineLiveData
+import com.kpit.scenichiking.util.location.LocationEngineLiveData.Companion.REQUEST_CHECK_SETTINGS
 import com.kpit.scenichiking.util.location.LocationEngineLiveData.LocationState.Failure
+import com.kpit.scenichiking.util.location.LocationEngineLiveData.LocationState.GpsNotFound
 import com.kpit.scenichiking.util.location.LocationEngineLiveData.LocationState.Success
 import com.kpit.scenichiking.util.location.PermissionStateObserver
 import com.kpit.scenichiking.util.map.MarkerUtil
@@ -44,6 +46,10 @@ abstract class PermissionActivity<VM : ViewModel> : BaseActivity<VM>(), Rational
             when (locationState) {
                 is Success -> filterApply<LocationProvider> { onLocationSuccess(locationState.location) }
                 is Failure -> filterApply<LocationProvider> { onLocationFailure(locationState.exception) }
+                is GpsNotFound -> locationState.exception?.startResolutionForResult(
+                    this,
+                    REQUEST_CHECK_SETTINGS
+                )
             }
         }
     }
@@ -72,5 +78,8 @@ abstract class PermissionActivity<VM : ViewModel> : BaseActivity<VM>(), Rational
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         permissionDispatcher.onActivityResult(requestCode)
+        if (requestCode == REQUEST_CHECK_SETTINGS) {
+            observeLocationEngine()
+        }
     }
 }

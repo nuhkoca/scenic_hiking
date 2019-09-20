@@ -141,6 +141,7 @@ dependencies {
 
     implementation(Dependencies.mapbox)
     implementation(Dependencies.mapbox_ui)
+    implementation(Dependencies.google_location)
 
     implementation(Dependencies.timber_kt)
 

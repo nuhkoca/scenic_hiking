@@ -33,6 +33,8 @@ object Dependencies {
     // Mapbox
     const val mapbox = "com.mapbox.mapboxsdk:mapbox-android-sdk:${Versions.mapbox}"
     const val mapbox_ui = "com.mapbox.mapboxsdk:mapbox-android-navigation-ui:${Versions.mapbox_ui}"
+    const val google_location =
+        "com.google.android.gms:play-services-location:${Versions.google_location}"
 
     const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
 
