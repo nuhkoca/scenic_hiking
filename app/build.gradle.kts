@@ -99,6 +99,12 @@ android {
         }
     }
 
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+        unitTests.isIncludeAndroidResources = true
+        animationsDisabled = true
+    }
+
     configurations {
         all {
             exclude(mapOf("group" to "com.google.guava", "module" to "listenablefuture"))

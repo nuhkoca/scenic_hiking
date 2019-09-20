@@ -2,11 +2,16 @@
 
 <p align="center"><img src="https://github.com/nuhkoca/scenic_hiking/blob/master/app/src/main/ic_launcher-web.png" alt="Scenic Hiking" height="200px"></p>
 
-***Scenic Hiking*** is a hiking app that users can choose locations and navigate to them accordingly. Map feature is provided by [Mapbox](https://www.mapbox.com/).
+:boom: ***Scenic Hiking*** is a hiking app that users can choose locations and navigate to them accordingly. Map feature is provided by [Mapbox](https://www.mapbox.com/).
 
 <p align="center">
   <a href="https://docs.mapbox.com/android/maps/overview/"><img alt="License" src="https://raw.githubusercontent.com/mapbox/mapbox-gl-js-docs/publisher-production/docs/pages/assets/logo.png" width="350"/></a>
 </p>
+
+[![CircleCI](https://circleci.com/gh/nuhkoca/scenic_hiking/tree/master.svg?style=svg&circle-token=6e74049f72417d0eeab4b4537adf63c5a1543241)](https://circleci.com/gh/nuhkoca/scenic_hiking/tree/master)
+[![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.41-blue.svg)](https://kotlinlang.org)
+[![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
+
 
 ## Prerequisites
 Normally, you need an ***API Key*** however this project provides it at the moment.
