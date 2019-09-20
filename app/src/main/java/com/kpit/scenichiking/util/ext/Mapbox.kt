@@ -6,6 +6,7 @@ import androidx.annotation.FloatRange
 import com.mapbox.android.core.permissions.PermissionsManager
 import com.mapbox.mapboxsdk.camera.CameraPosition
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
+import com.mapbox.mapboxsdk.geometry.LatLngBounds
 import com.mapbox.mapboxsdk.location.LocationComponent
 import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions
 import com.mapbox.mapboxsdk.location.modes.CameraMode.TRACKING
@@ -15,10 +16,9 @@ import com.mapbox.mapboxsdk.maps.Style
 
 private const val DEFAULT_ZOOM_LEVEL = 15.0
 private const val DEFAULT_ANIMATION_DURATION_IN_MS = 2000
-private const val INVALID_MIN_ZOOM_VALUE = 0.0
 
 fun MapboxMap.initWithDefault() {
-    uiSettings.isCompassEnabled = true
+    uiSettings.isCompassEnabled = false
     uiSettings.isZoomGesturesEnabled = true
 }
 
@@ -60,10 +60,27 @@ fun MapboxMap.updateAndAnimate(
     locationComponent.forceLocationUpdate(location)
 
     var currentZoom = cameraPosition.zoom
-    if (currentZoom.isZoomInInvalidRange) currentZoom = zoomLevel
+
+    if (currentZoom <= zoomLevel) currentZoom = zoomLevel
 
     animateWithDefault(location, currentZoom, durationInMs)
 }
 
-private inline val Double.isZoomInInvalidRange: Boolean
-    get() = this in INVALID_MIN_ZOOM_VALUE..DEFAULT_ZOOM_LEVEL
+fun MapboxMap.easeCameraWithBounds(
+    latLngBounds: LatLngBounds,
+    paddingLeft: Int = 0,
+    paddingTop: Int = 0,
+    paddingRight: Int = 0,
+    paddingBottom: Int = 0,
+    durationInMs: Int = DEFAULT_ANIMATION_DURATION_IN_MS
+) {
+    easeCamera(
+        CameraUpdateFactory.newLatLngBounds(
+            latLngBounds,
+            paddingLeft,
+            paddingTop,
+            paddingRight,
+            paddingBottom
+        ), durationInMs
+    )
+}

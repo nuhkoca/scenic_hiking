@@ -2,6 +2,7 @@ package com.kpit.scenichiking.di.module
 
 import com.kpit.scenichiking.di.scope.ActivityScope
 import com.kpit.scenichiking.ui.map.MapActivity
+import com.kpit.scenichiking.ui.map.MapActivityModule
 import com.kpit.scenichiking.ui.splash.SplashActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -10,7 +11,7 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityBuilder {
 
     @ActivityScope
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [MapActivityModule::class])
     internal abstract fun provideMapActivity(): MapActivity
 
     @ActivityScope
