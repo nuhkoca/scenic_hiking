@@ -5,4 +5,6 @@
   <color name="colorAccent">#D81B60</color>
 
   <color name="fab_ripple_color">#939293</color>
+
+  <color name="splash_app_name_color">#E9E8E8</color>
 </resources>

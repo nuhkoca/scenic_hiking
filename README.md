@@ -24,7 +24,7 @@ Normally, you need an ***API Key*** however this project provides it at the mome
 #### Screenshots
 
 
-| Search screen | Result screen | Result screen with favorites | Empty favorite screen
+| Splash screen | User location screen | Navigation screen | Route screen
 |:----------------:|:---------------:|:---------------:|:----------------:
 | <img src="art/1.png" width="350"/>  | <img src="art/2.png" width="350"/>  | <img src="art/3.png" width="350"/> | <img src="art/4.png" width="350"/>
 
@@ -56,6 +56,17 @@ Normally, you need an ***API Key*** however this project provides it at the mome
 * [EasyPermissions](https://github.com/googlesamples/easypermissions)
 * [Lottie](https://github.com/airbnb/lottie-android)
 
+### License
+
+**App icon based on:**
+
+Icons made by Freepik from [Flaticon](https://www.flaticon.com/) is licensed by CC 3.0 BY
+
+**Some gifs in the app based on:**
+
+Gifs made by Lottie Files [Lottie Files](https://www.lottiefiles.com/) from is licensed by CC 3.0 BY
+
+```
 MIT License
 
 Copyright (c) 2019 Nuh Koca

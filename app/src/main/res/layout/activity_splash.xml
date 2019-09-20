@@ -7,6 +7,20 @@
     tools:context=".ui.splash.SplashActivity"
     >
 
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/margin_normal"
+      android:fontFamily="@font/google_sans"
+      android:text="@string/splash_app_name"
+      android:textColor="@color/splash_app_name_color"
+      android:textSize="@dimen/splash_brand_name_text_size"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      />
+
   <com.airbnb.lottie.LottieAnimationView
       android:id="@+id/lottie"
       android:layout_width="wrap_content"
