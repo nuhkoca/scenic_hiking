@@ -6,7 +6,8 @@ import com.mapbox.geojson.Point
 import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute
 import javax.inject.Inject
 
-class NavigationRouteBuilder @Inject constructor(private val context: Context) : INavigationRoute {
+class NavigationRouteBuilder @Inject constructor(private val context: Context) :
+    NavigationRouteProvider {
     override fun getNavigationRoute(origin: Point, destination: Point): NavigationRoute =
         NavigationRoute.builder(context)
             .accessToken(Keys.mapBoxKey())

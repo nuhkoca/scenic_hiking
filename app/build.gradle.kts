@@ -144,8 +144,6 @@ dependencies {
 
     implementation(Dependencies.easy_permissions)
 
-    implementation(Dependencies.dynamic_animation)
-
     testImplementation(TestDependencies.test_core)
     testImplementation(TestDependencies.runner)
     testImplementation(TestDependencies.rules)

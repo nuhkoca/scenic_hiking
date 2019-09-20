@@ -6,7 +6,7 @@ import com.github.ajalt.timberkt.w
 import com.kpit.scenichiking.base.BaseViewModel
 import com.kpit.scenichiking.data.Resource
 import com.kpit.scenichiking.util.executor.Executors
-import com.kpit.scenichiking.util.location.NavigationRouteBuilder
+import com.kpit.scenichiking.util.location.NavigationRouteProvider
 import com.kpit.scenichiking.util.permission.AbstractPermissionDispatcher.PermissionState
 import com.kpit.scenichiking.util.permission.AbstractPermissionDispatcher.PermissionState.GRANTED
 import com.kpit.scenichiking.util.permission.PermissionDispatcher
@@ -22,7 +22,7 @@ import javax.inject.Inject
 
 class MapViewModel @Inject constructor(
     private val permissionDispatcher: PermissionDispatcher,
-    private val navigationRouteBuilder: NavigationRouteBuilder,
+    private val navigationRouteProvider: NavigationRouteProvider,
     private val compositeDisposable: CompositeDisposable,
     executors: Executors
 ) : BaseViewModel(compositeDisposable, executors) {
@@ -46,7 +46,7 @@ class MapViewModel @Inject constructor(
     }
 
     fun getRoute(origin: Point, destination: Point) {
-        navigationRouteBuilder.getNavigationRoute(origin, destination)
+        navigationRouteProvider.getNavigationRoute(origin, destination)
             .getRoute(object : Callback<DirectionsResponse> {
                 override fun onFailure(call: Call<DirectionsResponse>, t: Throwable) {
                     _routeLiveData.value = Resource.error(t)

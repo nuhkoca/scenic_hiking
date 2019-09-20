@@ -44,9 +44,6 @@ object Dependencies {
 
     // Timber
     const val timber_kt = "com.github.ajalt:timberkt:${Versions.timberkt}"
-
-    const val dynamic_animation =
-        "androidx.dynamicanimation:dynamicanimation:${Versions.dynamic_animation}"
 }
 
 object TestDependencies {
