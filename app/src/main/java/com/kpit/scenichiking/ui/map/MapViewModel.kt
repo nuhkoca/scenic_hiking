@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.github.ajalt.timberkt.w
 import com.kpit.scenichiking.base.BaseViewModel
 import com.kpit.scenichiking.data.Resource
+import com.kpit.scenichiking.util.config.OsUtil
 import com.kpit.scenichiking.util.executor.Executors
 import com.kpit.scenichiking.util.location.NavigationRouteProvider
 import com.kpit.scenichiking.util.permission.AbstractPermissionDispatcher.PermissionState
@@ -34,15 +35,17 @@ class MapViewModel @Inject constructor(
     val routeLiveData: LiveData<Resource<DirectionsResponse>> get() = _routeLiveData
 
     fun checkPermissionResult() {
-        permissionDispatcher.checkPermissionResult()
-            .subscribe({
-                if (PermissionState.of(it.ordinal) == GRANTED) {
-                    _permissionResultLiveData.value = it
-                }
-            }, {
-                w { it?.localizedMessage.toString() }
-            })
-            .addTo(compositeDisposable)
+        if (OsUtil.hasMAndAbove()) {
+            permissionDispatcher.checkPermissionResult()
+                .subscribe({
+                    if (PermissionState.of(it.ordinal) == GRANTED) {
+                        _permissionResultLiveData.value = it
+                    }
+                }, {
+                    w { it?.localizedMessage.toString() }
+                })
+                .addTo(compositeDisposable)
+        }
     }
 
     fun getRoute(origin: Point, destination: Point) {
