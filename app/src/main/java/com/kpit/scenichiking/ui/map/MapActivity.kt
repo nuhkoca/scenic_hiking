@@ -16,6 +16,7 @@ import com.kpit.scenichiking.util.ext.show
 import com.kpit.scenichiking.util.ext.slideDown
 import com.kpit.scenichiking.util.ext.toPoint
 import com.kpit.scenichiking.util.ext.updateAndAnimate
+import com.kpit.scenichiking.util.location.NavigationLauncherProvider
 import com.kpit.scenichiking.util.map.MarkerUtil.Companion.DESTINATION_SOURCE_ID
 import com.kpit.scenichiking.util.provider.DimenProvider
 import com.mapbox.api.directions.v5.models.DirectionsRoute
@@ -41,6 +42,9 @@ class MapActivity : PermissionActivity<MapViewModel>(), OnMapReadyCallback, MapP
     @Inject
     lateinit var dimenProvider: DimenProvider
 
+    @Inject
+    lateinit var navigationLauncherProvider: NavigationLauncherProvider
+
     private lateinit var mapboxMap: MapboxMap
     private lateinit var directionsRoute: DirectionsRoute
     private var navigationMapRoute: NavigationMapRoute? = null
@@ -65,7 +69,7 @@ class MapActivity : PermissionActivity<MapViewModel>(), OnMapReadyCallback, MapP
             }
         }
         startNavigation.setOnClickListener {
-            navigationLauncherHandler.startNavigation(directionsRoute)
+            navigationLauncherProvider.startNavigation(directionsRoute)
         }
         viewModel.checkPermissionResult()
     }
@@ -84,7 +88,7 @@ class MapActivity : PermissionActivity<MapViewModel>(), OnMapReadyCallback, MapP
                     }
                 }
                 ERROR -> snackbar.show(it.throwable?.localizedMessage.toString())
-                LOADING -> { //no-op
+                LOADING -> { // no-op
                 }
             }
         }

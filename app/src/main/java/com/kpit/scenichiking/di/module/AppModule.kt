@@ -7,6 +7,8 @@ import com.kpit.scenichiking.util.executor.HikingComputationThread
 import com.kpit.scenichiking.util.executor.HikingExecutionThread
 import com.kpit.scenichiking.util.executor.HikingPostExecutionThread
 import com.kpit.scenichiking.util.executor.PostExecutionThread
+import com.kpit.scenichiking.util.location.NavigationRouteBuilder
+import com.kpit.scenichiking.util.location.NavigationRouteProvider
 import com.kpit.scenichiking.util.permission.LocationPermissionDispatcher
 import com.kpit.scenichiking.util.permission.PermissionDispatcher
 import com.kpit.scenichiking.util.provider.DimenProvider
@@ -46,7 +48,14 @@ abstract class AppModule {
 
     @Binds
     @Singleton
-    internal abstract fun provideDimenProvider(hikingDimenProvider: HikingDimenProvider): DimenProvider
+    internal abstract fun provideDimenProvider(hikingDimenProvider: HikingDimenProvider):
+            DimenProvider
+
+    @Binds
+    @Singleton
+    internal abstract fun provideDNavigationRouteProvider(
+        navigationRouteBuilder: NavigationRouteBuilder
+    ): NavigationRouteProvider
 
     @Module
     object StaticAppModule {
