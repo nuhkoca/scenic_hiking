@@ -76,6 +76,7 @@
       android:layout_width="0dp"
       android:layout_height="@dimen/start_navigation_button_height"
       android:visibility="gone"
+      android:textSize="@dimen/text_size_big"
       app:layout_constraintEnd_toStartOf="@id/rightGuideline"
       app:layout_constraintStart_toEndOf="@id/leftGuideline"
       app:layout_constraintTop_toBottomOf="@id/toolbarLayout"
