@@ -30,7 +30,7 @@ class Resource<T> private constructor(
             )
         }
 
-        fun <T> loading(data: T?): Resource<T> {
+        fun <T> loading(data: T? = null): Resource<T> {
             return Resource(
                 LOADING,
                 data,

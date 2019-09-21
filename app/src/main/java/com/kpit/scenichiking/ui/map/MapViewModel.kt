@@ -49,6 +49,7 @@ class MapViewModel @Inject constructor(
     }
 
     fun getRoute(origin: Point, destination: Point) {
+        _routeLiveData.value = Resource.loading()
         navigationRouteProvider.getNavigationRoute(origin, destination)
             .getRoute(object : Callback<DirectionsResponse> {
                 override fun onFailure(call: Call<DirectionsResponse>, t: Throwable) {
