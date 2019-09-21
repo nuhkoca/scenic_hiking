@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import com.kpit.scenichiking.util.config.Keys
+import com.kpit.scenichiking.util.ext.checkGpsStatus
 import com.kpit.scenichiking.util.ext.filterApply
 import com.kpit.scenichiking.util.ext.observeWith
 import com.kpit.scenichiking.util.location.LocationEngineLiveData
@@ -46,10 +47,7 @@ abstract class PermissionActivity<VM : ViewModel> : BaseActivity<VM>(), Rational
             when (locationState) {
                 is Success -> filterApply<LocationProvider> { onLocationSuccess(locationState.location) }
                 is Failure -> filterApply<LocationProvider> { onLocationFailure(locationState.exception) }
-                is GpsNotFound -> locationState.exception?.startResolutionForResult(
-                    this,
-                    REQUEST_CHECK_SETTINGS
-                )
+                is GpsNotFound -> locationState.exception?.checkGpsStatus(this)
             }
         }
     }
