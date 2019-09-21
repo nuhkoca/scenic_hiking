@@ -16,6 +16,8 @@
 ## Prerequisites
 Normally, you need an ***API Key*** however this project provides it at the moment.
 
+*Note:* There are some concerns about how the app should've been designed since there is no info in the document sent to me. I just imagined and designed the app with a brainstorm and material researching.
+
 #### About
 
 >Map is handled by Mapbox API.
