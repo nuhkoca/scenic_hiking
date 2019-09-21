@@ -46,5 +46,4 @@ object MapboxModule {
         LocationSettingsRequest.Builder().addLocationRequest(
             LocationRequest().setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
         ).build()
-
 }

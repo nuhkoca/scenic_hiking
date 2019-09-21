@@ -4,7 +4,6 @@
 
   <dimen name="snackbar_margin_end_fab">0dp</dimen>
   <dimen name="snackbar_margin_bottom_fab">72dp</dimen>
-  <dimen name="snackbar_margin_bottom_bab">84dp</dimen>
 
   <dimen name="text_size_big">16sp</dimen>
   <dimen name="splash_brand_name_text_size">26sp</dimen>
