@@ -12,7 +12,6 @@ import com.kpit.scenichiking.util.ext.enableLocationComponent
 import com.kpit.scenichiking.util.ext.initWithDefault
 import com.kpit.scenichiking.util.ext.observeWith
 import com.kpit.scenichiking.util.ext.safeLet
-import com.kpit.scenichiking.util.ext.show
 import com.kpit.scenichiking.util.ext.slideDown
 import com.kpit.scenichiking.util.ext.toPoint
 import com.kpit.scenichiking.util.ext.updateAndAnimate
@@ -142,7 +141,7 @@ class MapActivity : PermissionActivity<MapViewModel>(), OnMapReadyCallback, MapP
                 NavigationMapRoute(null, mapView, mapboxMap, R.style.NavigationMapRoute)
         }
         navigationMapRoute?.addRoute(directionsRoute)
-        startNavigation.slideDown { startNavigation.show() }
+        startNavigation.slideDown()
     }
 
     override fun onLocationSuccess(location: Location?) {

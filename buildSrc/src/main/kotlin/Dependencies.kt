@@ -7,6 +7,8 @@ object Dependencies {
         "androidx.constraintlayout:constraintlayout:${Versions.constraint_layout}"
     const val core_ktx = "androidx.core:core-ktx:${Versions.core_ktx}"
     const val android_annotation = "androidx.annotation:annotation:${Versions.android_annotation}"
+    const val dynamic_animation =
+        "androidx.dynamicanimation:dynamicanimation:${Versions.dynamic_animation}"
 
     // Dagger
     const val dagger = "com.google.dagger:dagger:${Versions.dagger}"

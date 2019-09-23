@@ -121,6 +121,7 @@ dependencies {
     implementation(Dependencies.core_ktx)
     implementation(Dependencies.appcompat)
     implementation(Dependencies.android_annotation)
+    implementation(Dependencies.dynamic_animation)
 
     implementation(Dependencies.lifecycle_extensions)
     implementation(Dependencies.lifecycle_runtime)

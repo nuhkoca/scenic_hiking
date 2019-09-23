@@ -1,27 +1,24 @@
 package com.kpit.scenichiking.util.ext
 
-import android.animation.Animator
-import android.animation.ValueAnimator
 import android.view.View
-import android.view.animation.AccelerateInterpolator
-import androidx.core.animation.doOnStart
+import androidx.dynamicanimation.animation.DynamicAnimation.TRANSLATION_Y
+import androidx.dynamicanimation.animation.SpringAnimation
+import androidx.dynamicanimation.animation.SpringForce.DAMPING_RATIO_HIGH_BOUNCY
+import androidx.dynamicanimation.animation.SpringForce.STIFFNESS_LOW
 
-const val DEFAULT_ANIM_DURATION = 900L
-const val DEFAULT_INTERPOLATOR_FACTOR = 1.5f
+private const val DEFAULT_VELOCITY = 1000f
+private const val DEFAULT_FINAL_POSITION = 1.0f
 
 fun View.show() {
     visibility = View.VISIBLE
 }
 
-inline fun View.slideDown(
-    duration: Long = DEFAULT_ANIM_DURATION,
-    crossinline doOnStart: (animator: Animator) -> Unit = {}
-) {
-    ValueAnimator.ofFloat(-(context.screenHeight).toFloat(), 0f).apply {
-        doOnStart { doOnStart.invoke(it) }
-        addUpdateListener { translationY = it.animatedValue as Float }
-        interpolator = AccelerateInterpolator(DEFAULT_INTERPOLATOR_FACTOR)
-        setDuration(duration)
+fun View.slideDown() {
+    show()
+    SpringAnimation(this, TRANSLATION_Y, DEFAULT_FINAL_POSITION).apply {
+        spring.stiffness = STIFFNESS_LOW
+        spring.dampingRatio = DAMPING_RATIO_HIGH_BOUNCY
+        setStartVelocity(DEFAULT_VELOCITY)
         start()
     }
 }
