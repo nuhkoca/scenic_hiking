@@ -13,6 +13,10 @@ fun View.show() {
     visibility = View.VISIBLE
 }
 
+fun View.hide() {
+    visibility = View.GONE
+}
+
 fun View.slideDown() {
     show()
     SpringAnimation(this, TRANSLATION_Y, DEFAULT_FINAL_POSITION).apply {
