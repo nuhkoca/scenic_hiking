@@ -26,15 +26,15 @@ object Versions {
     const val javax = "10.0-b28"
 
     // Mapbox
-    const val mapbox = "8.3.2"
-    const val mapbox_ui = "0.41.0"
+    const val mapbox = "8.3.3"
+    const val mapbox_ui = "0.42.0"
     const val google_location = "17.0.0"
 
     // Timber
     const val timberkt = "1.5.1"
 
     // Lottie
-    const val lottie = "3.0.1"
+    const val lottie = "3.0.7"
 
     // LeakCanary
     const val leakcanary = "2.0-beta-3"
