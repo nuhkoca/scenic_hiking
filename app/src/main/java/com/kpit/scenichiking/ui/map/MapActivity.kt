@@ -9,6 +9,7 @@ import com.kpit.scenichiking.data.Resource.Status.LOADING
 import com.kpit.scenichiking.data.Resource.Status.SUCCESS
 import com.kpit.scenichiking.util.ext.easeCameraWithBounds
 import com.kpit.scenichiking.util.ext.enableLocationComponent
+import com.kpit.scenichiking.util.ext.hide
 import com.kpit.scenichiking.util.ext.initWithDefault
 import com.kpit.scenichiking.util.ext.observeWith
 import com.kpit.scenichiking.util.ext.safeLet
@@ -107,6 +108,7 @@ class MapActivity : PermissionActivity<MapViewModel>(), OnMapReadyCallback, MapP
     }
 
     override fun onMapLongClick(point: LatLng): Boolean {
+        startNavigation.hide()
         isInNavigationMode = true
         with(mapboxMap.locationComponent.lastKnownLocation) {
             safeLet(this?.longitude, this?.latitude) { long, lat ->

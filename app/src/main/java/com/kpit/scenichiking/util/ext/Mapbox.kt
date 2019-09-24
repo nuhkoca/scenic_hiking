@@ -16,6 +16,7 @@ import com.mapbox.mapboxsdk.maps.Style
 
 private const val DEFAULT_ZOOM_LEVEL = 15.0
 private const val DEFAULT_ANIMATION_DURATION_IN_MS = 2000
+private const val DEFAULT_PADDING = 0
 
 fun MapboxMap.initWithDefault() {
     uiSettings.isCompassEnabled = false
@@ -68,10 +69,10 @@ fun MapboxMap.updateAndAnimate(
 
 fun MapboxMap.easeCameraWithBounds(
     latLngBounds: LatLngBounds,
-    paddingLeft: Int = 0,
-    paddingTop: Int = 0,
-    paddingRight: Int = 0,
-    paddingBottom: Int = 0,
+    paddingLeft: Int = DEFAULT_PADDING,
+    paddingTop: Int = DEFAULT_PADDING,
+    paddingRight: Int = DEFAULT_PADDING,
+    paddingBottom: Int = DEFAULT_PADDING,
     durationInMs: Int = DEFAULT_ANIMATION_DURATION_IN_MS
 ) {
     easeCamera(
