@@ -35,9 +35,6 @@ jobs:
       - run:
           name: Run Unit Tests
           command: ./gradlew testDebugUnitTest
-      - run:
-          name: Run All Tests
-          command: ./gradlew testAll
       - store_artifacts:
           path: app/build/reports
           destination: reports
