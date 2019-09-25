@@ -110,6 +110,15 @@ android {
             exclude(mapOf("group" to "com.google.guava", "module" to "listenablefuture"))
         }
     }
+
+    kapt {
+        correctErrorTypes = true
+        javacOptions {
+            // Increase the max count of errors from annotation processors.
+            // Default is 100.
+            option("-Xmaxerrs", 500)
+        }
+    }
 }
 
 dependencies {
