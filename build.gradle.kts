@@ -9,6 +9,7 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
+        maven(url = "https://plugins.gradle.org/m2")
     }
     dependencies {
         classpath(Classpaths.gradle_plugin)
@@ -20,7 +21,10 @@ plugins {
     id("io.gitlab.arturbosch.detekt") version Versions.detekt
     id("com.github.ben-manes.versions") version Versions.ben_manes
     id("org.jlleitschuh.gradle.ktlint-idea") version Versions.ktlint
+    `build-scan`
 }
+
+apply(plugin = "com.gradle.build-scan")
 
 allprojects {
     repositories {
@@ -34,8 +38,6 @@ allprojects {
 tasks.register("clean", Delete::class) {
     delete = setOf(rootProject.buildDir)
 }
-
-tasks.register("testAll") { dependsOn("clean", "build", "test", "connectedAndroidTest") }
 
 subprojects {
     apply(from = "$rootDir/versions.gradle.kts")
@@ -102,4 +104,9 @@ tasks.named<DependencyUpdatesTask>("dependencyUpdates") {
     outputFormatter = "json"
     outputDir = "$buildDir/reports/dependencyUpdates"
     reportfileName = "dependency-report"
+}
+
+buildScan {
+    termsOfServiceUrl = "https://gradle.com/terms-of-service"
+    termsOfServiceAgree = "yes"
 }
