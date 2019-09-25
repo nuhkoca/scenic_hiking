@@ -6,7 +6,7 @@ jobs:
       - image: circleci/android:api-29
     environment:
       JVM_OPTS: -Xmx3200m
-      PATH: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home
+      JAVA_HOME: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home
     steps:
       - checkout
       - restore_cache:
