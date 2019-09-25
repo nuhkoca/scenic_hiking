@@ -2,8 +2,8 @@ version: 2.1
 jobs:
   build:
     working_directory: ~/code
-    - machine:
-        environment:
+    machine:
+      - environment:
           JAVA_HOME: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home
     docker:
       - image: circleci/android:api-29
