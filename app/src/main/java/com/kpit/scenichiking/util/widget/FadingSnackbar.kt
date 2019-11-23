@@ -12,7 +12,11 @@ import com.kpit.scenichiking.R.styleable
 import com.kpit.scenichiking.util.ext.inflate
 import com.kpit.scenichiking.util.ext.use
 
-class FadingSnackbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
+class FadingSnackbar @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet?
+) : FrameLayout(context, attrs) {
+
     private var message: TextView? = null
     private var action: Button? = null
     private var length: String? = null
@@ -35,7 +39,8 @@ class FadingSnackbar(context: Context, attrs: AttributeSet?) : FrameLayout(conte
         }
     }
 
-    fun show(messageText: String) {
+    fun show(messageText: String?) {
+        if (messageText == null) return
         message?.text = messageText
         alpha = 0f
         visibility = View.VISIBLE

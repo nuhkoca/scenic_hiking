@@ -4,18 +4,7 @@ import android.location.Location
 import com.kpit.scenichiking.R
 import com.kpit.scenichiking.base.LocationProvider
 import com.kpit.scenichiking.base.PermissionActivity
-import com.kpit.scenichiking.data.Resource.Status.ERROR
-import com.kpit.scenichiking.data.Resource.Status.LOADING
-import com.kpit.scenichiking.data.Resource.Status.SUCCESS
-import com.kpit.scenichiking.util.ext.easeCameraWithBounds
-import com.kpit.scenichiking.util.ext.enableLocationComponent
-import com.kpit.scenichiking.util.ext.hide
-import com.kpit.scenichiking.util.ext.initWithDefault
-import com.kpit.scenichiking.util.ext.observeWith
-import com.kpit.scenichiking.util.ext.safeLet
-import com.kpit.scenichiking.util.ext.slideDown
-import com.kpit.scenichiking.util.ext.toPoint
-import com.kpit.scenichiking.util.ext.updateAndAnimate
+import com.kpit.scenichiking.util.ext.*
 import com.kpit.scenichiking.util.location.NavigationLauncherProvider
 import com.kpit.scenichiking.util.map.MarkerUtil.Companion.DESTINATION_SOURCE_ID
 import com.kpit.scenichiking.util.provider.DimenProvider
@@ -30,10 +19,7 @@ import com.mapbox.mapboxsdk.maps.OnMapReadyCallback
 import com.mapbox.mapboxsdk.maps.Style.MAPBOX_STREETS
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource
 import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute
-import kotlinx.android.synthetic.main.activity_map.mapView
-import kotlinx.android.synthetic.main.activity_map.myLocationButton
-import kotlinx.android.synthetic.main.activity_map.snackbar
-import kotlinx.android.synthetic.main.activity_map.startNavigation
+import kotlinx.android.synthetic.main.activity_map.*
 import javax.inject.Inject
 
 class MapActivity : PermissionActivity<MapViewModel>(), OnMapReadyCallback, MapProvider,
@@ -79,16 +65,15 @@ class MapActivity : PermissionActivity<MapViewModel>(), OnMapReadyCallback, MapP
             mapboxMap.enableLocationComponent(context, mapboxMap.style!!)
             observeLocationEngine()
         }
-        routeLiveData.observeWith(this@MapActivity) {
-            when (it.status) {
-                SUCCESS -> {
-                    it.data?.routes()?.get(0)?.let { route ->
-                        directionsRoute = route
-                        drawRoute(directionsRoute)
-                    }
+        routeLiveData.observeWith(this@MapActivity) { uiState ->
+            with(uiState) {
+                uiState.data?.let { route ->
+                    directionsRoute = route
+                    drawRoute(directionsRoute)
                 }
-                ERROR -> snackbar.show(it.throwable?.localizedMessage.toString())
-                LOADING -> { // no-op
+
+                if (isError) {
+                    snackbar.show(errorMessage)
                 }
             }
         }
