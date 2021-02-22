@@ -24,7 +24,7 @@ plugins {
     `build-scan`
 }
 
-apply(plugin = "com.gradle.build-scan")
+apply(plugin = "com.gradle.enterprise")
 
 allprojects {
     repositories {
