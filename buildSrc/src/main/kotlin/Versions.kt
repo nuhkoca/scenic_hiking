@@ -14,7 +14,7 @@ object Versions {
     const val constraint_layout = "2.0.0-beta2"
 
     // RxJava
-    const val rx_java = "2.2.12"
+    const val rx_java = "2.2.21"
     const val rx_android = "2.1.1"
     const val rx_kotlin = "2.4.0"
 
