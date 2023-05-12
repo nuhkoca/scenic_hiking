@@ -26,7 +26,7 @@ object Versions {
     const val javax = "10.0-b28"
 
     // Mapbox
-    const val mapbox = "8.6.7"
+    const val mapbox = "9.2.1"
     const val mapbox_ui = "0.42.6"
     const val google_location = "17.1.0"
 
