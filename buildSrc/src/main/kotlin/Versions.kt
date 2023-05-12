@@ -28,7 +28,7 @@ object Versions {
     // Mapbox
     const val mapbox = "8.3.3"
     const val mapbox_ui = "0.42.6"
-    const val google_location = "17.0.0"
+    const val google_location = "17.1.0"
 
     // Timber
     const val timberkt = "1.5.1"
