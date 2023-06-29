@@ -37,7 +37,7 @@ object Versions {
     const val lottie = "6.0.1"
 
     // LeakCanary
-    const val leakcanary = "2.11"
+    const val leakcanary = "2.12"
 
     // EasyPermissions
     const val easy_permissions = "3.0.0"
