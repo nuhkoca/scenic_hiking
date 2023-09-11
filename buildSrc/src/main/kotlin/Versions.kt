@@ -1,7 +1,7 @@
 object Versions {
     // Kotlin
     const val core_ktx = "1.10.1"
-    const val android_annotation = "1.6.0"
+    const val android_annotation = "1.7.0"
     const val dynamic_animation = "1.0.0"
 
     // Gradle plugins
