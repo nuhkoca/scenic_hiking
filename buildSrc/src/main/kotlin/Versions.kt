@@ -43,7 +43,7 @@ object Versions {
     const val easy_permissions = "3.0.0"
 
     // Static code analysis
-    const val detekt = "1.23.1"
+    const val detekt = "1.23.3"
     const val ben_manes = "0.49.0"
     const val ktlint = "11.6.1"
 
