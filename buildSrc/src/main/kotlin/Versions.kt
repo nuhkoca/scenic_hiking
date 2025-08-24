@@ -52,7 +52,7 @@ object Versions {
     const val runner = "1.6.2"
     const val rules = "1.7.0"
     const val junit = "1.3.0"
-    const val truth_ext = "1.6.0"
+    const val truth_ext = "1.7.0"
     const val truth = "1.4.4"
     const val espresso_core = "3.6.1"
     const val mockito = "2.2.0"
