@@ -49,7 +49,7 @@ object Versions {
 
     // Testing
     const val test_core = "1.6.1"
-    const val runner = "1.6.2"
+    const val runner = "1.7.0"
     const val rules = "1.7.0"
     const val junit = "1.3.0"
     const val truth_ext = "1.7.0"
