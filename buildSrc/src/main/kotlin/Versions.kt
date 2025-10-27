@@ -34,7 +34,7 @@ object Versions {
     const val timberkt = "1.5.1"
 
     // Lottie
-    const val lottie = "6.6.10"
+    const val lottie = "6.7.0"
 
     // LeakCanary
     const val leakcanary = "2.14"
