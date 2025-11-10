@@ -5,7 +5,7 @@ object Versions {
     const val dynamic_animation = "1.1.0"
 
     // Gradle plugins
-    const val gradle_plugin = "8.13.0"
+    const val gradle_plugin = "8.13.1"
     const val kotlin_gradle_plugin = "2.2.21"
 
     // UI
